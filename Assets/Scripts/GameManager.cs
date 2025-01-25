@@ -24,10 +24,8 @@ public class GameManager : MonoBehaviour
 
     private void LoadFarmScene()
     {
-        _input.FarmPlayer.Enable();
         Debug.Log("starting in farm");
         _hud.DisableFarmButton();
         SceneManager.LoadSceneAsync("FarmScene", LoadSceneMode.Additive);
-
     }
 }

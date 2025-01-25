@@ -41,8 +41,6 @@ public class HUDControl : MonoBehaviour
     public void SwitchToCorgi()
     {
 
-        _input.FarmPlayer.Disable();
-        _input.CorgiPlayer.Enable();
         Debug.Log("switching to corgi");
         DisableCorgiButton();
         SceneManager.LoadSceneAsync("CorgiScene", LoadSceneMode.Additive);
@@ -52,11 +50,8 @@ public class HUDControl : MonoBehaviour
 
     public void SwitchToFarm()
     {
-        _input.CorgiPlayer.Disable();
-        _input.FarmPlayer.Enable();
         Debug.Log("switching to farm");
         DisableFarmButton();
-
         SceneManager.LoadSceneAsync("FarmScene",LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("CorgiScene");
     }
