@@ -6,11 +6,11 @@ public class FarmPlayerMove : MonoBehaviour
     private InputSystem_Actions _input;
     [SerializeField] private float _speed;
     private Vector2 move;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
-        Debug.Log("FarmPlayerMove::Start is running");
+        Debug.Log("FarmPlayerMove::OnEnable");
         _input = new InputSystem_Actions();
+        _input.FarmPlayer.Enable();
         _input.FarmPlayer.Move.performed += StartWalk;
         _input.FarmPlayer.Move.canceled += StopWalk;
     }
@@ -26,10 +26,15 @@ public class FarmPlayerMove : MonoBehaviour
         move = _input.FarmPlayer.Move.ReadValue<Vector2>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         CalcMove();
+    }
+
+    void OnDisable()
+    {
+        Debug.Log("FarmPlayerMove::OnDisable");
+        _input.FarmPlayer.Disable();
     }
 
     private void CalcMove()

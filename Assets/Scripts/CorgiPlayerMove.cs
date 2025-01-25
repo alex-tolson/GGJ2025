@@ -7,10 +7,12 @@ public class CorgiPlayerMove : MonoBehaviour
     private InputSystem_Actions _input;
     [SerializeField] private float _speed;
     private Vector2 move;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    void OnEnable()
     {
+        Debug.Log("CorgiPlayerMove::OnEnable");
         _input = new InputSystem_Actions();
+        _input.CorgiPlayer.Enable();
         _input.CorgiPlayer.Move.performed += StartWalk;
         _input.CorgiPlayer.Move.canceled += StopWalk;
     }
@@ -26,10 +28,15 @@ public class CorgiPlayerMove : MonoBehaviour
         move = _input.CorgiPlayer.Move.ReadValue<Vector2>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         CalcMove();
+    }
+
+    void OnDisable()
+    {
+        Debug.Log("CorgiPlayerMove::OnDisable");
+        _input.CorgiPlayer.Disable();
     }
 
     private void CalcMove()
