@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class HUDControl : MonoBehaviour
 {
     private InputSystem_Actions _input;
+    [SerializeField] private GameObject _farmButton;
+    [SerializeField] private GameObject _corgiButton;
 
     private void OnEnable()
     {
@@ -26,6 +28,7 @@ public class HUDControl : MonoBehaviour
             Debug.LogError("HUDControl::InputActions is null");
         }
         Debug.Log("disabling farm player button");
+        _farmButton.SetActive(false);
     }
     public void DisableCorgiButton()
     {
@@ -35,6 +38,7 @@ public class HUDControl : MonoBehaviour
             Debug.LogError("HUDControl::InputActions is null");
         }
         Debug.Log("disabling corgi button");
+        _corgiButton.SetActive(false);
     }
 
     //function to switch scene upon button press
@@ -43,6 +47,7 @@ public class HUDControl : MonoBehaviour
 
         Debug.Log("switching to corgi");
         DisableCorgiButton();
+        _farmButton.SetActive(true);
         SceneManager.LoadSceneAsync("CorgiScene", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("FarmScene");
 
@@ -52,7 +57,16 @@ public class HUDControl : MonoBehaviour
     {
         Debug.Log("switching to farm");
         DisableFarmButton();
+        EnableCorgiButton();
         SceneManager.LoadSceneAsync("FarmScene",LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("CorgiScene");
+    }
+    public void EnableFarmButton()
+    {
+        _farmButton.SetActive(true);
+    }
+    public void EnableCorgiButton()
+    { 
+        _corgiButton.SetActive(true);
     }
 }
