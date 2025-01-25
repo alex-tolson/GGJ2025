@@ -7,4 +7,3 @@ Theme: Bubbles
 
 ## Wabaloo
 A top down game about surviving the apocalypse, building community, economics, flying corgis, and water balloon fights.
-
