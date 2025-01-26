@@ -6,6 +6,7 @@ public class FarmPlayerMove : MonoBehaviour
     private InputSystem_Actions _input;
     [SerializeField] private float _speed;
     private Vector2 move;
+
     void OnEnable()
     {
         Debug.Log("FarmPlayerMove::OnEnable");
@@ -42,5 +43,4 @@ public class FarmPlayerMove : MonoBehaviour
         Vector2 dx = move * _speed * Time.deltaTime;
         transform.Translate(dx);
     }
-
 }
