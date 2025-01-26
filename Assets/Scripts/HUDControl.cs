@@ -5,7 +5,7 @@ using Resource;
 
 public class HUDControl : MonoBehaviour
 {
-    private InputSystem_Actions _input;
+    //private InputSystem_Actions _input;
     [SerializeField] private GameObject _farmButton;
     [SerializeField] private GameObject _corgiButton;
     [SerializeField] private TMP_Text _wabalooNumber;
@@ -15,7 +15,7 @@ public class HUDControl : MonoBehaviour
 
     private void OnEnable()
     {
-        _input = new InputSystem_Actions();
+        //_input = new InputSystem_Actions();
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         Debug.Log("start in hud control called");
     }
@@ -40,8 +40,6 @@ public class HUDControl : MonoBehaviour
 
         Debug.Log("switching to corgi");
         _gm.SetCurrentPlayer(1);
-        _input.FarmPlayer.Disable();
-        _input.CorgiPlayer.Enable();
         _farmButton.SetActive(true);
         _corgiButton.SetActive(false);
     }
@@ -50,8 +48,6 @@ public class HUDControl : MonoBehaviour
     {
         Debug.Log("switching to farm");
         _gm.SetCurrentPlayer(0);
-        _input.FarmPlayer.Enable();
-        _input.CorgiPlayer.Disable();
         _corgiButton.SetActive(true);
         _farmButton.SetActive(false);
 

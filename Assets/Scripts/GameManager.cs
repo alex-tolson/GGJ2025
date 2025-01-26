@@ -6,7 +6,7 @@ using Resource;
 public class GameManager : MonoBehaviour
 {
     private HUDControl _hud;
-    private InputSystem_Actions _input;
+    //private InputSystem_Actions _input;
 
     private string saveFile = "/Users/Owner/wabaloo.json";
     private ResourceManager _resources;
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _input = new InputSystem_Actions();
+        //_input = new InputSystem_Actions();
         _hud = GameObject.Find("HUD").GetComponent<HUDControl>();
         _resources = ResourceManager.LoadFile(saveFile);
         LoadFarmScene();
@@ -44,9 +44,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("starting in farm");
         _currentPlayer = 0;
-        _input.FarmPlayer.Enable();
         GameObject.Find("PlayerButton").SetActive(false);
-        SceneManager.LoadSceneAsync("FarmScene1", LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync("FarmScene1", LoadSceneMode.Additive);
     }
 
     public int GetCurrentPlayer()
@@ -57,15 +56,5 @@ public class GameManager : MonoBehaviour
     public void SetCurrentPlayer(int newPlayer)
     {
         _currentPlayer = newPlayer;
-        if(newPlayer==0)
-        {
-            _input.FarmPlayer.Enable();
-            _input.CorgiPlayer.Disable();
-        }
-        else
-        {
-            _input.FarmPlayer.Disable();
-            _input.CorgiPlayer.Enable();
-        }
     }
 }
