@@ -9,23 +9,21 @@ public class CameraMov : MonoBehaviour
     [SerializeField] private GameObject _topLeft;
     [SerializeField] private GameObject _bottomRight;
     private InputSystem_Actions _input;
+    private GameManager _gm;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
+        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         _input = new InputSystem_Actions();
-        //WhosePlaying();
+        WhosePlaying();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (!_input.FarmPlayer.enabled)
-        //{
-
-        //    WhosePlaying();
-        //}
+        WhosePlaying();
         MoveCamera();
     }
 
@@ -40,7 +38,8 @@ public class CameraMov : MonoBehaviour
 
     public void WhosePlaying()
     {
-        if (_input.FarmPlayer.enabled)
+        int currentPlayer = _gm.GetCurrentPlayer();
+        if (currentPlayer == 0)
         {
             
             _player = GameObject.Find("Player").GetComponent<Transform>();
@@ -49,6 +48,6 @@ public class CameraMov : MonoBehaviour
         {
             _player = GameObject.Find("CorgiPlayer").GetComponent<Transform>();
         }
-        Debug.Log(" _input.FarmPlayer.enabled " + _input.FarmPlayer.enabled);
+        //Debug.Log(currentPlayer + "  current Player ");
     }
 }
