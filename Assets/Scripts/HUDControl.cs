@@ -10,6 +10,7 @@ public class HUDControl : MonoBehaviour
     [SerializeField] private GameObject _corgiButton;
     [SerializeField] private TMP_Text _wabalooNumber;
     [SerializeField] private TMP_Text _rubberNumber;
+    [SerializeField] private TMP_Text _moneyNumber;
 
     private GameManager _gm;
 
@@ -27,6 +28,7 @@ public class HUDControl : MonoBehaviour
         ResourceManager r = _gm.GetResourceManager();
         _wabalooNumber.SetText(r.GetPlayerWabaloos().ToString());
         _rubberNumber.SetText(r.GetPlayerRubbers().ToString());
+        _moneyNumber.SetText(r.GetPlayerMoney().ToString());
     }
 
     public void SaveGame()
