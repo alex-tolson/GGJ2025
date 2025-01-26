@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private HUDControl _hud;
     private InputSystem_Actions _input;
 
-    private string saveFile = "/Users/pavan/wabaloo.json";
+    private string saveFile = "/Users/Owner/wabaloo.json";
     private ResourceManager _resources;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

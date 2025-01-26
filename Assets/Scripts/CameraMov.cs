@@ -21,11 +21,11 @@ public class CameraMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_input.FarmPlayer.enabled)
-        {
+        //if (!_input.FarmPlayer.enabled)
+        //{
 
-            WhosePlaying();
-        }
+        //    WhosePlaying();
+        //}
         MoveCamera();
     }
 
