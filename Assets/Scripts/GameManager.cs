@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
             _resources = new ResourceManager();
             _resources.SetPlayerWabaloos(0);
             _resources.SetPlayerRubbers(0);
+            _resources.SetPlayerMoney(0);
             _resources.SaveFile(_ResourceManagerFile);
         }
         else
