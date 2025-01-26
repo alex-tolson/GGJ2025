@@ -8,12 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FarmScene.unity
     guid: 76a4b46c780d8a8468c1cd84e916e176
   - enabled: 1
-    path: Assets/Scenes/CorgiScene.unity
+    path: Assets/Scenes/MainScene.unity
+    guid: 46f8fb1a15107504683a715be3d1d000
+  - enabled: 0
+    path: Assets/Scenes/Players.unity
     guid: 037d71529bef2f342b3fef2da623d942
+  - enabled: 1
+    path: Assets/Scenes/FarmScene1.unity
+    guid: f49cdbe2ff23f944e8705468aa8ae4db
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

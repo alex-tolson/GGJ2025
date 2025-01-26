@@ -10,13 +10,11 @@ public class CorgiPlayerMove : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("CorgiPlayerMove::OnEnable");
+        Debug.Log("CorgiPlayer::OnEnable");
         _input = new InputSystem_Actions();
-        _input.CorgiPlayer.Enable();
         _input.CorgiPlayer.Move.performed += StartWalk;
         _input.CorgiPlayer.Move.canceled += StopWalk;
     }
-
     private void StartWalk(InputAction.CallbackContext context)
     {
         Debug.Log("corgi player walking");
@@ -44,4 +42,6 @@ public class CorgiPlayerMove : MonoBehaviour
         Vector2 dx = move * _speed * Time.deltaTime;
         transform.Translate(dx);
     }
+
+
 }
