@@ -70,17 +70,31 @@ public class AllPlayerMove : MonoBehaviour
 
     private void UpdateAnimators()
     {
+        Animator corgiAnim = _corgiPlayer.GetComponent<Animator>();
+        Animator farmPlayerAnim = _farmPlayer.GetComponent<Animator>();
         if (_gm.GetCurrentPlayer() == 0)
         {
-            Animator corgiAnim = _corgiPlayer.GetComponent<Animator>();
+            
             corgiAnim.SetBool("isMoving", false);
+            
+
+            if (move.x * move.x + move.y * move.y < 0.1f)
+            {
+                farmPlayerAnim.SetBool("isMoving", false);
+            }
+            else
+            {
+                farmPlayerAnim.SetBool("isMoving", true);
+                farmPlayerAnim.SetFloat("FarmerX", move.x);
+                farmPlayerAnim.SetFloat("FarmerY", move.y);
+            }
             //corgiAnim.SetFloat("corgiX", 0.0f);
             //corgiAnim.SetFloat("corgiY", 0.0f);
             //TODO farmerAnim.Set()
         }
         else
         {
-            Animator corgiAnim = _corgiPlayer.GetComponent<Animator>();
+            farmPlayerAnim.SetBool("isMoving", false);
             if (move.x * move.x + move.y * move.y < 0.1f)
             {
                 corgiAnim.SetBool("isMoving", false);
