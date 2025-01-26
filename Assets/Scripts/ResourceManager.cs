@@ -1,6 +1,7 @@
 using System.IO;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using UnityEngine;
 
 namespace Resource
 {
@@ -22,6 +23,7 @@ namespace Resource
 
         public void SaveFile(string jsonFile)
         {
+            Debug.Log($"Saving file to path: {jsonFile}");
             StringBuilder sb = new StringBuilder();
             sb.Append("{\n");
             sb.Append(@"  ""playerWabaloos"": ");

@@ -31,7 +31,7 @@ public class HUDControl : MonoBehaviour
 
     public void SaveGame()
     {
-        _gm.SaveFile();
+        _gm.SaveAllFiles();
     }
 
     //function to switch scene upon button press
