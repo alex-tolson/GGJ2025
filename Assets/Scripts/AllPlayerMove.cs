@@ -49,6 +49,7 @@ public class AllPlayerMove : MonoBehaviour
     void Update()
     {
         CalcMove();
+        UpdateAnimators();
     }
 
     private void CalcMove()
@@ -64,6 +65,32 @@ public class AllPlayerMove : MonoBehaviour
         else
         {
             _corgiPlayer.transform.Translate(dx);
+        }
+    }
+
+    private void UpdateAnimators()
+    {
+        if (_gm.GetCurrentPlayer() == 0)
+        {
+            Animator corgiAnim = _corgiPlayer.GetComponent<Animator>();
+            corgiAnim.SetBool("isMoving", false);
+            //corgiAnim.SetFloat("corgiX", 0.0f);
+            //corgiAnim.SetFloat("corgiY", 0.0f);
+            //TODO farmerAnim.Set()
+        }
+        else
+        {
+            Animator corgiAnim = _corgiPlayer.GetComponent<Animator>();
+            if (move.x * move.x + move.y * move.y < 0.1f)
+            {
+                corgiAnim.SetBool("isMoving", false);
+            }
+            else
+            {
+                corgiAnim.SetBool("isMoving", true);
+                corgiAnim.SetFloat("corgiX", move.x);
+                corgiAnim.SetFloat("corgiY", move.y);
+            }
         }
     }
 }

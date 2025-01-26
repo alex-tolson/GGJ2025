@@ -4080,9 +4080,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4399939354967124170, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 389095297, guid: 6581b94f8c0cb4b5ca813a5467c674fb, type: 3}
+    - target: {fileID: 4399939354967124170, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399939354967124170, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399939354967124170, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5432208710856735050, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
       propertyPath: m_Name
       value: CorgiPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716821867039489376, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.6666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716821867039489376, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.8055556
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6751242996097232963, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
@@ -4093,6 +4117,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5432208710856735050, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 617983646}
+    - targetCorrespondingSourceObject: {fileID: 5432208710856735050, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 617983649}
   m_SourcePrefab: {fileID: 100100000, guid: b9b655c568b9b3a4db72e32864959ba0, type: 3}
 --- !u!1 &542918679 stripped
 GameObject:
@@ -4141,6 +4168,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &617983649
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617983639}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53378d65f18ce4073955f297616763a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &722342938
 GameObject:
   m_ObjectHideFlags: 0
