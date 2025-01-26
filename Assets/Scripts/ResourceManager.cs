@@ -36,7 +36,7 @@ namespace Resource
             }
             try
             {
-                r.SetPlayerMoney((int)doc["playeMoney"]);
+                r.SetPlayerMoney((int)doc["playerMoney"]);
             }
             catch (Exception e)
             {
