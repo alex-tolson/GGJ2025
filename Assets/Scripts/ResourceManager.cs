@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json.Linq;
@@ -9,6 +10,7 @@ namespace Resource
     {
         private int playerWabaloos;
         private int playerRubbers;
+        private int playerMoney;
 
         // Load Save JSON File
         public static ResourceManager LoadFile(string jsonFile)
@@ -16,8 +18,30 @@ namespace Resource
             string json = File.ReadAllText(jsonFile);
             ResourceManager r = new ResourceManager();
             JObject doc = JObject.Parse(json);
-            r.SetPlayerWabaloos((int) doc["playerWabaloos"]);
-            r.SetPlayerRubbers((int) doc["playerRubbers"]);
+            try
+            {
+                r.SetPlayerWabaloos((int)doc["playerWabaloos"]);
+            }
+            catch (Exception e)
+            {
+                r.SetPlayerWabaloos(0);
+            }
+            try
+            {
+                r.SetPlayerRubbers((int)doc["playerRubbers"]);
+            }
+            catch (Exception e)
+            {
+                r.SetPlayerRubbers(0);
+            }
+            try
+            {
+                r.SetPlayerMoney((int)doc["playeMoney"]);
+            }
+            catch (Exception e)
+            {
+                r.SetPlayerMoney(0);
+            }
             return r;
         }
 
@@ -31,8 +55,12 @@ namespace Resource
             sb.Append(",\n");
             sb.Append(@"  ""playerRubbers"": ");
             sb.Append(this.playerRubbers);
+            sb.Append(",\n");
+            sb.Append(@"  ""playerMoney"": ");
+            sb.Append(this.playerMoney);
             sb.Append("\n");
             sb.Append("}\n");
+
 
             File.WriteAllText(jsonFile, sb.ToString());
         }
@@ -62,6 +90,20 @@ namespace Resource
         {
             int old = playerRubbers;
             playerRubbers = newRubbers;
+            return old;
+        }
+
+
+        // Money
+        public int GetPlayerMoney()
+        {
+            return playerMoney;
+        }
+
+        public int SetPlayerMoney(int newMoney)
+        {
+            int old = playerMoney;
+            playerMoney = newMoney;
             return old;
         }
     }

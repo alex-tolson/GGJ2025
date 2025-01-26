@@ -49,6 +49,8 @@ public class Interactable : MonoBehaviour
             else if(_getMoney)
             {
                 Debug.Log("Collecting Money");
+                int oldmoney = resource.GetPlayerMoney();
+                resource.SetPlayerMoney(oldmoney + 1);
             }
         }
     }
