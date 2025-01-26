@@ -12,6 +12,7 @@ public class CorgiPlayerMove : MonoBehaviour
     {
         Debug.Log("CorgiPlayer::OnEnable");
         _input = new InputSystem_Actions();
+        _input.CorgiPlayer.Enable();
         _input.CorgiPlayer.Move.performed += StartWalk;
         _input.CorgiPlayer.Move.canceled += StopWalk;
     }
@@ -29,12 +30,6 @@ public class CorgiPlayerMove : MonoBehaviour
     void Update()
     {
         CalcMove();
-    }
-
-    void OnDisable()
-    {
-        Debug.Log("CorgiPlayerMove::OnDisable");
-        _input.CorgiPlayer.Disable();
     }
 
     private void CalcMove()

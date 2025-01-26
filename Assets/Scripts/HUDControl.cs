@@ -19,7 +19,7 @@ public class HUDControl : MonoBehaviour
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         Debug.Log("start in hud control called");
     }
-  
+
 
     // Update is called once per frame
     void Update()
@@ -39,42 +39,22 @@ public class HUDControl : MonoBehaviour
     {
 
         Debug.Log("switching to corgi");
-        DisableCorgiButton();
-        EnableFarmButton();
-        SceneManager.LoadSceneAsync("CorgiScene", LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("FarmScene");
-
+        _gm.SetCurrentPlayer(1);
+        _input.FarmPlayer.Disable();
+        _input.CorgiPlayer.Enable();
+        _farmButton.SetActive(true);
+        _corgiButton.SetActive(false);
     }
 
     public void SwitchToFarm()
     {
         Debug.Log("switching to farm");
-        EnableCorgiButton();
-        DisableFarmButton();
-        SceneManager.LoadSceneAsync("FarmScene",LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("CorgiScene");
-    }
-
-    public void DisableFarmButton()
-    {
-        Debug.Log("disabling farm player button");
-        _farmButton.SetActive(false);
-    }
-    public void DisableCorgiButton()
-    {
-        Debug.Log("disabling corgi button");
-        _corgiButton.SetActive(false);
-    }
-    public void EnableFarmButton()
-    {
-        _farmButton.SetActive(true);
+        _gm.SetCurrentPlayer(0);
         _input.FarmPlayer.Enable();
         _input.CorgiPlayer.Disable();
-    }
-    public void EnableCorgiButton()
-    { 
         _corgiButton.SetActive(true);
-        _input.FarmPlayer.Disable();
-        _input.CorgiPlayer.Enable();
+        _farmButton.SetActive(false);
+
     }
+
 }

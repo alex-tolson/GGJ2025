@@ -32,12 +32,6 @@ public class FarmPlayerMove : MonoBehaviour
         CalcMove();
     }
 
-    void OnDisable()
-    {
-        Debug.Log("FarmPlayerMove::OnDisable");
-        _input.FarmPlayer.Disable();
-    }
-
     private void CalcMove()
     {
         Vector2 dx = move * _speed * Time.deltaTime;
